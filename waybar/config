@@ -1,0 +1,76 @@
+{
+    //"name": "topbar",
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    
+    "modules-left": [
+        "sway/workspaces", 
+        "sway/mode"
+    ],
+
+    "modules-center": [
+        "wlr/taskbar"
+    ],
+
+    "modules-right": [
+        "memory",
+        "network#rate",
+        "tray",
+        "pulseaudio",
+        "clock#date", 
+        "clock#time"
+    ],
+    
+    "wlr/taskbar": {
+        "icon-size": 14,
+        "on-click": "activate",
+        "tooltip": false,
+        "ignore-list": ["foot"]
+    }, 
+
+    "pulseaudio": {
+        "tooltip": false,
+        "format": "{icon} {volume}%",
+        "scroll-step": 5,
+        "format-muted": "婢",
+        "format-icons": {
+            "default": ["", ""]
+        },
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pavucontrol"
+    },
+
+    "memory": {
+        "interval": 1,
+        "tooltip": false,
+        "format": "{used:0.1f}G/{total:0.1f}G",
+        "format-alt": "{swapUsed:0.1f}G/{swapTotal:0.1f}G",
+        "states": {
+            "warning": 60,
+            "critical": 80
+        },
+    },
+
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    
+    "clock#date": {
+	"format": "{:%a, %b %d}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    
+    "clock#time": {
+         "format": "{:%I:%M %p}"
+    }, 
+
+    "network#rate": {
+        "interval": 5,
+        "format": "↓{bandwidthDownBits} | ↑{bandwidthUpBits}",
+        "format-alt": "↓{bandwidthDownBytes} | ↑{bandwidthUpBytes}",
+        "format-disconnected": "Disconnected ⚠",
+        "tooltip": false
+    },
+
+}
