@@ -26,7 +26,7 @@ set {
     $discord discord --ozone-platform-hint=auto
     
     # swaylock 
-    $screenlock swaylock -e -f -c 555555
+    $screenlock swaylock -f -c 555555
 }
 
 ### visuals
@@ -53,10 +53,10 @@ seat * hide_cursor 100000
 
 ### swayidle
 exec swayidle -w \
-        timeout 900 $swaylock \
+        timeout 900 '$screenlock' \
         timeout 1200 'swaymsg "output * dpms off"' \
-                resume 'swaymsg "output * dpms on"' \
-        before-sleep $swaylock
+            resume 'swaymsg "output * dpms on"' \
+        before-sleep '$screenlock'
 
 ### bindings
 bindsym {
