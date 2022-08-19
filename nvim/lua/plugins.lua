@@ -20,6 +20,9 @@ return require('packer').startup(function(use)
 
     -- theme
     use { 'ellisonleao/gruvbox.nvim', config = get_setup("gruvbox") }
+    
+    -- show indents
+    use { 'lukas-reineke/indent-blankline.nvim', config = get_setup("indent") }
 
     -- underline text
     use { 'yamatsum/nvim-cursorline', config = get_setup("cursorline") }
