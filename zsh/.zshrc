@@ -1,4 +1,4 @@
-# historu
+# history
 HISTFILE="/home/jordan/.config/zsh/.histfile"
 HISTSIZE=1000
 SAVEHIST=1000
@@ -15,7 +15,7 @@ compinit
 PROMPT=' %F{39}%2~%f %F{76}%#%f '
 
 # alias
-alias cat=bat
+#alias cat=bat
 alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
