@@ -33,6 +33,10 @@ set {
 # desktop wallpaper
 output * bg #555555 solid_color
 
+# display output
+output HDMI-A-1 resolution 1920x1080 position 0,0
+output DP-1 resolution 3840x2160 position 1920,0 scale 2
+
 # font
 font JetBrainsMono Nerd Font 10
 
