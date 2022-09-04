@@ -5,9 +5,9 @@ end
 return require('packer').startup(function(use)
     use { 'wbthomason/packer.nvim' }
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-    use { 'neovim/nvim-lspconfig', config = get_setup("lspconfig") }
 
     -- completion
+    use { 'neovim/nvim-lspconfig', config = get_setup("lspconfig") }
     use { 'hrsh7th/cmp-nvim-lsp' }
     use { 'hrsh7th/cmp-buffer' }
     use { 'hrsh7th/cmp-path' }
@@ -19,7 +19,7 @@ return require('packer').startup(function(use)
     use { 'rafamadriz/friendly-snippets' }
 
     -- theme
-    use { 'ellisonleao/gruvbox.nvim', config = get_setup("gruvbox") }
+    use { 'EdenEast/nightfox.nvim', config = get_setup("nightfox") }
     
     -- show indents
     use { 'lukas-reineke/indent-blankline.nvim', config = get_setup("indent") }

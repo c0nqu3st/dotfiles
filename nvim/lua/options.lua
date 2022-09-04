@@ -6,7 +6,7 @@ opt.syntax = 'on'
 opt.completeopt = {'menu', 'menuone', 'noselect'} -- for cmp completion
 
 opt.background = 'dark'
-vim.cmd ('colorscheme gruvbox')
+vim.cmd('colorscheme carbonfox')
 
 opt.swapfile = false
 opt.backup = false

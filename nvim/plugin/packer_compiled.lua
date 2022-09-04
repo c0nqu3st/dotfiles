@@ -100,12 +100,6 @@ _G.packer_plugins = {
     path = "/home/jordan/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
-  ["gruvbox.nvim"] = {
-    config = { 'require("setup/gruvbox")' },
-    loaded = true,
-    path = "/home/jordan/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
-    url = "https://github.com/ellisonleao/gruvbox.nvim"
-  },
   ["indent-blankline.nvim"] = {
     config = { 'require("setup/indent")' },
     loaded = true,
@@ -123,6 +117,12 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jordan/.local/share/nvim/site/pack/packer/start/luasnip",
     url = "https://github.com/L3MON4D3/luasnip"
+  },
+  ["nightfox.nvim"] = {
+    config = { 'require("setup/nightfox")' },
+    loaded = true,
+    path = "/home/jordan/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
+    url = "https://github.com/EdenEast/nightfox.nvim"
   },
   ["nvim-cmp"] = {
     config = { 'require("setup/cmp")' },
@@ -176,30 +176,30 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-cursorline
-time([[Config for nvim-cursorline]], true)
-require("setup/cursorline")
-time([[Config for nvim-cursorline]], false)
--- Config for: gruvbox.nvim
-time([[Config for gruvbox.nvim]], true)
-require("setup/gruvbox")
-time([[Config for gruvbox.nvim]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-require("setup/lspconfig")
-time([[Config for nvim-lspconfig]], false)
--- Config for: lualine.nvim
-time([[Config for lualine.nvim]], true)
-require("setup/lualine")
-time([[Config for lualine.nvim]], false)
--- Config for: luasnip
-time([[Config for luasnip]], true)
-require("setup/luasnip")
-time([[Config for luasnip]], false)
 -- Config for: indent-blankline.nvim
 time([[Config for indent-blankline.nvim]], true)
 require("setup/indent")
 time([[Config for indent-blankline.nvim]], false)
+-- Config for: nvim-cursorline
+time([[Config for nvim-cursorline]], true)
+require("setup/cursorline")
+time([[Config for nvim-cursorline]], false)
+-- Config for: lualine.nvim
+time([[Config for lualine.nvim]], true)
+require("setup/lualine")
+time([[Config for lualine.nvim]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+require("setup/lspconfig")
+time([[Config for nvim-lspconfig]], false)
+-- Config for: luasnip
+time([[Config for luasnip]], true)
+require("setup/luasnip")
+time([[Config for luasnip]], false)
+-- Config for: nightfox.nvim
+time([[Config for nightfox.nvim]], true)
+require("setup/nightfox")
+time([[Config for nightfox.nvim]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
 require("setup/cmp")

@@ -8,51 +8,54 @@ set {
     $down j
     $up k
     $right l
-} 
+}
 
 ### vars
 set {
     # terminal
     $term foot
+
+    #discord
+    $discord webcord --ozone-platform=wayland
     
     # browser
-    #$browser firefox
-    $browser chromium --ozone-platform-hint=auto
+    $browser firefox
     
-    # spotify
-    $spotify spotify --ozone-platform-hint=auto
-
-    # discord
-    $discord discord --ozone-platform-hint=auto
-    
-    # swaylock 
+    # swaylock
     $screenlock swaylock -f -c 555555
 }
 
 ### visuals
 # desktop wallpaper
-output * bg #555555 solid_color
+output * bg ~/Media/tile.png tile #555555
 
 # display output
 output HDMI-A-1 resolution 1920x1080 position 0,0
 output DP-1 resolution 3840x2160 position 1920,0 scale 2
 
-# font
-font JetBrainsMono Nerd Font 10
-
-# title bar
-#title_align center
-#titlebar_border_thickness 2
-#titlebar_padding 2 2
-
 # borders
-default_border pixel
-hide_edge_borders both
+default_border pixel 2
+smart_borders on
 gaps inner 4
 gaps outer 4
-smart_borders on
 
-# disable inactive cursor
+# move floating window with mouse
+floating_modifier $mod
+
+# window colors
+set $black  #000000
+set $white  #ffffff
+set $red    #ff0000
+set $blue   #123987
+
+#class                      border  bkgrnd  text    indi    childbdr
+client.focused              $red    $red    $white  $red    $red
+client.focused_inactive     $black  $black  $white  $black  $black
+client.unfocused            $black  $black  $white  $black  $black
+client.urgent               $blue   $black  $white  $black  $blue
+client.placeholder          $blue   $black  $white  $black  $blue
+
+# hide inactive cursor
 seat * hide_cursor 100000
 
 ### swayidle
@@ -89,23 +92,22 @@ bindsym {
     # object focus split direction 
     $mod+v splitt
 
-    # Switch the current container between different layout styles
+    # switch the current container between different layout styles
     $mod+s layout stacking
     $mod+w layout tabbed
     $mod+e layout toggle split
 
-    # Make the current focus fullscreen
+    # make the current focus fullscreen
     $mod+f fullscreen
 
-    # Toggle the current focus between tiling and floating mode
+    # toggle between borders
+    $mod+a border toggle
+
+    # toggle the current focus between tiling and floating mode
     $mod+Shift+space floating toggle
 
-    # Swap focus between the tiling area and the floating area
+    # swap focus between the tiling area and the floating area
     $mod+space focus mode_toggle
-
-    # Move focus to the parent container
-    $mod+a focus parent
-    $mod+Shift+a focus child
 
     # kill focused window
     $mod+Shift+q kill
@@ -122,15 +124,12 @@ bindsym {
     ### run bidings
     # start terminal
     $mod+Return exec $term
-
-    # start discord 
-    $mod+d exec $discord
-
-    # start spotify
-    $mod+o exec $spotify
-
+    
     # start browser
     $mod+z exec $browser
+
+    # start discord
+    $mod+d exec $discord
 
     # lock screen
     $mod+t exec $screenlock
@@ -188,5 +187,16 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 bar {
-    swaybar_command waybar 
+    position top
+    font pango:Lilex 10
+    separator_symbol |
+    status_command while ~/.config/sway/status.sh; do sleep 20; done
+
+    colors {
+        statusline $white
+        background $black
+    }
 }
+
+# needed for screen-capture on wayland
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP

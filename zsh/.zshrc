@@ -1,28 +1,18 @@
-# history
-HISTFILE="/home/jordan/.config/zsh/.histfile"
+HISTFILE="~/.config/zsh/.histfile"
 HISTSIZE=1000
 SAVEHIST=1000
 
-autoload -Uz add-zsh-hook
-
 setopt autocd
 bindkey -v
-zstyle :compinstall filename '/home/jordan/.config/zsh/.zshrc'
 
 autoload -Uz compinit
 compinit
 
 PROMPT=' %F{39}%2~%f %F{76}%#%f '
 
-# alias
-alias ll='ls -l'
-alias la='ls -a'
-alias lla='ls -la'
+alias ls='ls --color=auto'
+alias vim=nvim
 
-#hot reloading glow for notes
-alias hotglow='ls *.md | entr -c glow'
-
-#OSC-7 esacpe sequence
 function osc7 {
     local LC_ALL=C
     export LC_ALL
@@ -32,4 +22,6 @@ function osc7 {
     uri=${(j::)input/(#b)([^A-Za-z0-9_.\!~*\'\(\)-\/])/%${(l:2::0:)$(([##16]#match))}}
     print -n "\e]7;file://${HOSTNAME}${uri}\e\\"
 }
+
+autoload -Uz add-zsh-hook
 add-zsh-hook -Uz chpwd osc7
