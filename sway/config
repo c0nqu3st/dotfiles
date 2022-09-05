@@ -35,7 +35,7 @@ output DP-1 resolution 3840x2160 position 1920,0 scale 2
 
 # borders
 default_border pixel 2
-smart_borders on
+#smart_borders on
 gaps inner 4
 gaps outer 4
 
