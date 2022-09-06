@@ -1,6 +1,6 @@
 format_date=$(date +'%a, %b %d %I:%M %p')
 format_kernal=$(uname -r | cut -d '-' -f1)
-format_uptime=$(uptime | cut -b 1-10)
+format_uptime=$(uptime | cut -b 13-18)
 
 muted=$(pulsemixer --get-mute)
 if test "$muted" = '0'; then
