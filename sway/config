@@ -21,6 +21,9 @@ set {
     # browser
     $browser firefox
     
+    # screenshot
+    $snip grim -g "$(slurp)"
+    
     # swaylock
     $screenlock swaylock -f -c 555555
 }
@@ -124,6 +127,9 @@ bindsym {
     ### run bidings
     # start terminal
     $mod+Return exec $term
+ 
+    # screenshot/snip
+    $mod+o exec $snip
     
     # start browser
     $mod+z exec $browser
